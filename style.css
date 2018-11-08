@@ -1,0 +1,71 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  background: #060ab2;
+}
+
+.memory-game {
+  height: 640px;
+  width: 640px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  perspective: 1000px;
+  /*
+  when we go for display : flex
+  somethings are defaulted for us
+  
+  // to child div
+  flex-item {
+      flex : 1; // each one of you will take same amount of space on scree;
+  }
+  // to the div to which it is applied
+  flex-container {
+      flex-direction : row; You will all be in one row.
+      flex-wrap : nowrap; You all will be in one row. 
+      justify-content : flex-start; The items will be positioned from left to right
+      align-items : streach; They will streached out across container heigh
+  }
+  */
+}
+
+.memory-card {
+  width: calc(25% - 10px);
+  height: calc(33.33% - 10px);
+  margin: 5px;
+  position: relative;
+  transform: scale(1);
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+.memory-card:active {
+  transform: scale(0.97);
+  transition: transform 0.2s;
+}
+
+.memory-card.flip {
+  transform: rotateY(180deg);
+}
+
+.front-face,
+.back-face {
+  height: 100%;
+  width: 100%;
+  padding: 20px;
+  position: absolute;
+  border-radius: 5px;
+  background: #1c7ccc;
+  backface-visibility: hidden;
+}
+
+.front-face {
+  transform: rotateY(180deg);
+}
